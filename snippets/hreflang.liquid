@@ -1,0 +1,66 @@
+{%- unless shop.domain contains ".myshopify" %}
+
+    {%- comment %}
+    SH: add tags to non-home pages
+    {% endcomment -%}
+    {%- if template == 'index' %}
+        {%- assign storeUK = 'https://www.opposuits.co.uk/' -%}
+        {%- assign storeNL = 'https://www.opposuits.nl/' -%}
+        {%- assign storeDE = 'https://www.opposuits.de/' -%}
+        {%- assign storeUS = 'https://www.opposuits.com/' -%}
+        {%- assign storeEU = 'https://www.opposuits.eu/' -%}
+        {%- assign canonical_url = '' -%}
+    {% else %}
+        {%- assign storeUK = '' -%}
+        {%- assign storeNL = '' -%}
+        {%- assign storeDE = '' -%}
+        {%- assign storeUS = '' -%}
+        {%- assign storeEU = '' -%}
+    {% endif -%}
+
+    {%- if shop.permanent_domain == "opposuits-co-uk.myshopify.com" or template == 'index' %}
+        <link rel="alternate" href="{{ storeUK }}{{ canonical_url | remove: storeUK | strip }}" hreflang="en-gb" />    
+        <link rel="alternate" href="{{ storeUK }}{{ canonical_url | remove: storeUK | strip }}" hreflang="en-ie" />
+    {%- endif -%}
+
+    {%- if shop.permanent_domain == "opposuits-nl.myshopify.com" or template == 'index' %}
+        <link rel="alternate" href="{{ storeNL }}{{ canonical_url | remove: storeNL | strip }}" hreflang="nl-nl" />
+        <link rel="alternate" href="{{ storeNL }}{{ canonical_url | remove: storeNL | strip }}" hreflang="nl-be" />
+    {%- endif -%}
+
+    {%- if shop.permanent_domain == "opposuits-de.myshopify.com" or template == 'index' %}
+        <link rel="alternate" href="{{ storeDE }}{{ canonical_url | remove: storeDE | strip }}" hreflang="de-de" />
+        <link rel="alternate" href="{{ storeDE }}{{ canonical_url | remove: storeDE | strip }}" hreflang="de-at" />
+        <link rel="alternate" href="{{ storeDE }}{{ canonical_url | remove: storeDE | strip }}" hreflang="de-ch" />
+    {%- endif -%}
+
+    {%- if shop.permanent_domain == "opposuits-us.myshopify.com" or template == 'index' %}
+        <link rel="alternate" href="{{ storeUS }}{{ canonical_url | remove: storeUS | strip }}" hreflang="en-us" />
+        <link rel="alternate" href="{{ storeUS }}{{ canonical_url | remove: storeUS | strip }}" hreflang="en-ca" />
+    {%- endif -%}
+    {%- if shop.permanent_domain == "opposuits.myshopify.com" or template == 'index' %}
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-bg" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-hr" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-cy" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-cz" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-dk" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-ee" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-fi" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-fr" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-gr" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-hu" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-it" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-lv" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-lt" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-lu" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-mt" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-pl" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-pt" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-ro" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-sk" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-si" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-es" />
+        <link rel="alternate" href="{{ storeEU }}{{ canonical_url | remove: storeEU | strip }}" hreflang="en-se" />
+    {%- endif -%}
+
+{% endunless -%}

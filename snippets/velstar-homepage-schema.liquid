@@ -1,0 +1,34 @@
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "url": "{{ shop.url }}",
+        {%- if settings.organization_logo != blank -%}
+        "logo": "{{ settings.organization_logo | image_url }}",
+        {%- endif -%}
+        "name": "{{ shop.name }}",
+        {%- if shop.description != blank -%}
+        "description": "{{ shop.description }}",
+        {%- endif -%}
+        {%- if shop.address.street != blank or shop.address.city != blank or shop.address.province != blank or shop.address.zip != blank or shop.address.country != blank -%}
+        "address": {
+            "@type": "PostalAddress",
+            {%- if shop.address.street != blank -%}
+            "streetAddress": "{{shop.address.street}}",
+            {%- endif -%}
+            {%- if shop.address.city != blank -%}
+            "addressLocality": "{{ shop.address.city }}",
+            {%- endif -%}
+            {%- if shop.address.province != blank -%}
+            "addressRegion": "{{ shop.address.province }}",
+            {%- endif -%}
+            {%- if shop.address.zip != blank -%}
+            "postalCode": "{{ shop.address.zip }}",
+            {%- endif -%}
+            {%- if shop.address.country != blank -%}
+            "addressCountry": "{{ shop.address.country }}"
+            {%- endif -%}
+        }
+        {%- endif -%}
+    }
+</script>

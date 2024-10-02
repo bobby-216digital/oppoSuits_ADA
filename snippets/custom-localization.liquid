@@ -1,0 +1,37 @@
+<div id="custom_country_link_direct" class="disclosure" data-disclosure-country>
+        <button type="button" class="disclosure__toggle custom_footer_dropdown" aria-expanded="false" aria-controls="country-list-{{ input_prefix }}" aria-describedby="country-heading-{{ input_prefix }}" data-disclosure-toggle>
+          {% comment %}{% if abbreviate_country %}{{ localization.country.iso_code }}{% else %}{{ localization.country.name }}{% endif %} ({{ localization.country.currency.iso_code }}&nbsp;{{ localization.country.currency.symbol }}){% endcomment %}
+          <span class="custom_content_flag_and_text footer_section">
+           {% if settings.store_image != blank %}  <img src="{{ settings.store_image | img_url:'40x40' }}" alt="{{ settings.text }}">{% endif %}{{ settings.text }}  
+         </span>
+        <span class="disclosure__toggle-arrow" role="presentation">{% render 'svg-chevron-down' %}</span>
+        </button>
+<ul id="country-list-{{ input_prefix }}" class="disclosure-list custom_country_link" data-disclosure-list>
+  {% for i in (1..10) %}
+  {% assign name = 'name_' | append:i %}
+  {% assign image = 'image_' | append:i %}
+  {% assign link = 'link_' | append:i %}
+  {% assign country_name = settings[name] %}
+  {% assign country_image = settings[image] %}
+  {% assign country_link = settings[link] %}
+  {% if country_link != blank and country_image != blank and country_name != blank %}
+    <li class="disclosure-list__item{% if country.iso_code == localization.country.iso_code %} disclosure-list__item--current{% endif %}">
+      <a class="disclosure-list__option disclosure-option-with-parts" href="{{ country_link }}"{% if country.iso_code == localization.country.iso_code %} aria-current="true"{% endif %} data-value=" {{ country_name }}" data-disclosure-option>
+         <span class="disclosure-option-with-parts__part"><img src=" {{ country_image | img_url:"40x40" }}" alt="{{ country_name }}"></span> <span class="disclosure-option-with-parts__part"> {{ country_name }}</span>
+      </a>
+    </li>
+  {% endif %}
+  {% endfor %}
+</ul>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $(document).on('click', '.custom_country_link .disclosure-list__option', function(e){
+      e.preventDefault();
+      var url = $(this).attr('href');
+      var name = $(this).data('value');
+      window.location.href= url;
+    })
+  });
+</script>
