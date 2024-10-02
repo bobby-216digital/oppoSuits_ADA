@@ -81,7 +81,9 @@
             {% if section.settings.use_h1 %}
               <h1 class="majortitle in-content">{{ section.settings.title | escape }}</h1>
             {% else %}
+              {% if section.settings.title != blank %}
               <h2 class="majortitle in-content h1-style">{{ section.settings.title | escape }}</h2>
+              {% endif %}
             {% endif %}
           {% endif %}
 

@@ -6204,6 +6204,7 @@
       $subcollectionGallery.on('init', function () {
         $('.lazyload--manual', this).removeClass('lazyload--manual').addClass('lazyload');
       }).slick({
+        accessibility: false,
         autoplay: false,
         fade: false,
         infinite: false,
@@ -6377,6 +6378,7 @@
             $carouselGallery.on('init', function () {
               $('.lazyload--manual', this).removeClass('lazyload--manual').addClass('lazyload');
             }).slick({
+              accessibility: false,
               autoplay: false,
               fade: false,
               infinite: true,
@@ -6384,7 +6386,7 @@
               arrows: false,
               dots: true,
               customPaging: function customPaging(slider, i) {
-                return "<button class=\"custom-dot\" type=\"button\" data-role=\"none\" role=\"button\" tabindex=\"0\">" + "<svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"30px\" height=\"30px\" viewBox=\"0 0 30 30\" xml:space=\"preserve\">" + "<circle class=\"circle-one\" cx=\"15\" cy=\"15\" r=\"13\" />" + "<circle class=\"circle-two\" cx=\"15\" cy=\"15\" r=\"13\" />" + "</svg>" + "</button>";
+                return "<button aria-label=\"Slick Slider Dot\" class=\"custom-dot\" type=\"button\" data-role=\"none\" role=\"button\" tabindex=\"0\">" + "<svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"30px\" height=\"30px\" viewBox=\"0 0 30 30\" xml:space=\"preserve\">" + "<circle class=\"circle-one\" cx=\"15\" cy=\"15\" r=\"13\" />" + "<circle class=\"circle-two\" cx=\"15\" cy=\"15\" r=\"13\" />" + "</svg>" + "</button>";
 
 
 
@@ -6865,6 +6867,7 @@
         $(this).on('init', function () {
           $('.lazyload--manual', this).removeClass('lazyload--manual').addClass('lazyload');
         }).slick({
+          accessibility: false,
           autoplay: $(this).data('autoplay'),
           fade: $(this).data('transition') !== 'slide',
           speed: slideshowSpeed,
@@ -6877,7 +6880,7 @@
           prevArrow: '<button type="button" class="slick-prev" aria-label="' + theme.strings.previous + '">' + theme.icons.chevronLeft + '</button>',
           nextArrow: '<button type="button" class="slick-next" aria-label="' + theme.strings.next + '">' + theme.icons.chevronRight + '</button>',
           customPaging: function customPaging(slider, i) {
-            return "<button class=\"custom-dot\" type=\"button\" data-role=\"none\" role=\"button\" tabindex=\"0\">" + "<svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"30px\" height=\"30px\" viewBox=\"0 0 30 30\" xml:space=\"preserve\">" + "<circle class=\"circle-one\" cx=\"15\" cy=\"15\" r=\"13\" />" + "<circle class=\"circle-two\" cx=\"15\" cy=\"15\" r=\"13\" style=\"animation-duration: ".concat(
+            return "<button aria-label=\"Slick Slider Dot\" class=\"custom-dot\" type=\"button\" data-role=\"none\" role=\"button\" tabindex=\"0\">" + "<svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"30px\" height=\"30px\" viewBox=\"0 0 30 30\" xml:space=\"preserve\">" + "<circle class=\"circle-one\" cx=\"15\" cy=\"15\" r=\"13\" />" + "<circle class=\"circle-two\" cx=\"15\" cy=\"15\" r=\"13\" style=\"animation-duration: ".concat(
 
 
             autoplaySpeed + slideshowSpeed, "ms\" />") + "</svg>" + "</button>";
@@ -6935,6 +6938,7 @@
       this.$testimonialContainer.find('.testimonial-list__inner').on('init', function () {
         $('.lazyload--manual', this).removeClass('lazyload--manual').addClass('lazyload');
       }).slick({
+        accessibility: false,
         fade: this.$testimonialContainer.hasClass('testimonial-list--with-images'),
         slidesToShow: this.$testimonialContainer.hasClass('testimonial-list--without-images') ? 2 : 1,
         autoplay: this.$testimonialContainer.data('autoplay'),

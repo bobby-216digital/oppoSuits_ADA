@@ -131,17 +131,17 @@
                   <div class="overlay-text__button-row">
                     {%- if wrap_slide_with_link -%}
                       {%- if block.settings.button_label_1 != blank -%}
-                        <span class="overlay-text__button button altcolour">{{ block.settings.button_label_1 | escape }}</span>
+                        <span class="overlay-text__button button altcolour">{{ block.settings.button_label_1 | escape }}<span class="visually-hidden"> {{ block.settings.image.alt | escape }}</span></span>
                       {%- endif -%}
                       {%- if block.settings.button_label_2 != blank -%}
-                        <span class="overlay-text__button button altcolour">{{ block.settings.button_label_2 | escape }}</span>
+                        <span class="overlay-text__button button altcolour">{{ block.settings.button_label_2 | escape }}<span class="visually-hidden"> {{ block.settings.image.alt | escape }}</span></span>
                       {%- endif -%}
                     {%- else -%}
                       {%- if block.settings.button_label_1 != blank -%}
-                        <a class="overlay-text__button button altcolour" href="{{ block.settings.button_url_1 }}">{{ block.settings.button_label_1 | escape }}</a>
+                        <a class="overlay-text__button button altcolour" href="{{ block.settings.button_url_1 }}">{{ block.settings.button_label_1 | escape }}<span class="visually-hidden"> {{ block.settings.image.alt | escape }}</span></a>
                       {%- endif -%}
                       {%- if block.settings.button_label_2 != blank -%}
-                        <a class="overlay-text__button button altcolour" href="{{ block.settings.button_url_2 }}">{{ block.settings.button_label_2 | escape }}</a>
+                        <a class="overlay-text__button button altcolour" href="{{ block.settings.button_url_2 }}">{{ block.settings.button_label_2 | escape }}<span class="visually-hidden"> {{ block.settings.image.alt | escape }}</span></a>
                       {%- endif -%}
                     {%- endif -%}
                   </div>

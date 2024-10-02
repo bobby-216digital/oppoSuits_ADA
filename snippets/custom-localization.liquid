@@ -1,5 +1,5 @@
 <div id="custom_country_link_direct" class="disclosure" data-disclosure-country>
-        <button type="button" class="disclosure__toggle custom_footer_dropdown" aria-expanded="false" aria-controls="country-list-{{ input_prefix }}" aria-describedby="country-heading-{{ input_prefix }}" data-disclosure-toggle>
+        <button type="button" class="disclosure__toggle custom_footer_dropdown" aria-expanded="false" aria-controls="country-list-{{ input_prefix }}" data-disclosure-toggle>
           {% comment %}{% if abbreviate_country %}{{ localization.country.iso_code }}{% else %}{{ localization.country.name }}{% endif %} ({{ localization.country.currency.iso_code }}&nbsp;{{ localization.country.currency.symbol }}){% endcomment %}
           <span class="custom_content_flag_and_text footer_section">
            {% if settings.store_image != blank %}  <img src="{{ settings.store_image | img_url:'40x40' }}" alt="{{ settings.text }}">{% endif %}{{ settings.text }}  
