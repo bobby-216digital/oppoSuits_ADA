@@ -44,7 +44,7 @@
 
           {% if block.settings.button_label != blank %}
             <div class="text-column__button-row text-column__button-row--{{ section.settings.button_style }}">
-              <a class="text-column__button {% if section.settings.button_style != 'link' %}btn btn--{{ section.settings.button_style }}{% else %}small-feature-link{% endif %}" href="{{ block.settings.link }}">{{ block.settings.button_label | escape }}</a>
+              <a class="text-column__button {% if section.settings.button_style != 'link' %}btn btn--{{ section.settings.button_style }}{% else %}small-feature-link{% endif %}" href="{{ block.settings.link }}">{{ block.settings.button_label | escape }}<span class="visually-hidden"> - {{ block.settings.title | escape }}</span></a>
             </div>
           {% endif %}
         </div>

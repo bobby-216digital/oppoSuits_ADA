@@ -54,7 +54,7 @@
   -%}
   <div class="height--{{ section.settings.height }} image-overlay image-overlay--bg-{{ section.settings.overlay_style }} {% if section.settings.mobile_overlay_under %}overlay-text-parent--mobile-stack{% endif %}" data-cc-animate data-cc-animate-delay="0.2s">
     {%- if wrap_image_with_link -%}
-      <a class="image-overlay__image-link" href="{{ section.settings.image_link }}">
+      <a aria-label="View {{ section.settings.image.alt | escape }}" class="image-overlay__image-link" href="{{ section.settings.image_link }}">
     {%- endif -%}
 
     {%- if section.settings.image == blank -%}

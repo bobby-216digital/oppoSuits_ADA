@@ -29,7 +29,7 @@
           endfor
         -%}
         <div class="image-cont {% if show_hover_image %}image-cont--with-secondary-image {% if aspect_ratios_same %}image-cont--same-aspect-ratio{% endif %}{% endif %}">
-          <a class="product-link{% if settings.quickbuy_style == 'whole' %} quickbuy-toggle{% endif %}" href="{{ product_url }}" aria-label="{{ product.title | escape }}" tabindex="-1">
+          <a class="product-link{% if settings.quickbuy_style == 'whole' %} quickbuy-toggle{% endif %}" href="{{ product_url }}" tabindex="-1">
             <div class="image-label-wrap">
               <div>
                 {%- if show_hover_image -%}

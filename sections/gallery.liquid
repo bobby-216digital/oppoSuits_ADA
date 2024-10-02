@@ -76,7 +76,7 @@
               {% unless section.settings.use_alt_bg %}{% unless section.settings.full_width and section.settings.enable_margin == false %}image-overlay--edge-boxes--pad-to-corner{% endunless %}{% endunless %}
               " {{ block.shopify_attributes }}
               data-cc-animate>
-            {%- if block.settings.link != blank -%}<a class="image-overlay__image-link" href="{{ block.settings.link }}">{%- endif -%}
+            {%- if block.settings.link != blank -%}<a aria-label="View {{ block.settings.image.alt | escape }}" class="image-overlay__image-link" href="{{ block.settings.link }}">{%- endif -%}
 
             {%- if block.settings.image == blank -%}
               <div class="gallery__image placeholder-image {% if show_overlay_text %}dark{% endif %}" style="--ar-padding: 100%">

@@ -13,9 +13,9 @@
             <div class="section-footer__row__col section-footer__menu-block" role="navigation" aria-label="{{ 'layout.footer.navigation_aria_label' | t | escape }}" {{ block.shopify_attributes }}>
               {% if block.settings.title != blank %}
                 {%- assign title_word_count = block.settings.title | split: ' ' | size -%}
-                <div class="section-footer__title heading-font h6-style{% if title_word_count < 4 %} no-wrap{% endif %}">
+                <h2 class="section-footer__title heading-font h6-style{% if title_word_count < 4 %} no-wrap{% endif %}">
                   {{- block.settings.title | escape -}}
-                </div>
+                </h2>
               {% endif %}
 
               {% if block.settings.menu != blank %}
@@ -35,9 +35,9 @@
             <div class="section-footer__row__col section-footer__text-block {% if block.settings.text != blank %}section-footer__text-block--with-text{% endif %}" {{ block.shopify_attributes }}>
               {% if block.settings.title != blank %}
                 {%- assign title_word_count = block.settings.title | split: ' ' | size -%}
-                <div class="section-footer__title heading-font h6-style{% if title_word_count < 4 %} no-wrap{% endif %}">
+                <h2 class="section-footer__title heading-font h6-style{% if title_word_count < 4 %} no-wrap{% endif %}">
                   {{- block.settings.title | escape -}}
-                </div>
+                </h2>
               {% endif %}
 
               {% if block.settings.text != blank %}
@@ -70,9 +70,9 @@
             <div class="section-footer__row__col section-footer__newsletter-block" {{ block.shopify_attributes }}>
               {% if block.settings.title != blank %}
                 {%- assign title_word_count = block.settings.title | split: ' ' | size -%}
-                <div class="section-footer__title heading-font h6-style{% if title_word_count < 4 %} no-wrap{% endif %}">
+                <h2 class="section-footer__title heading-font h6-style{% if title_word_count < 4 %} no-wrap{% endif %}">
                   {{- block.settings.title | escape -}}
-                </div>
+                </h2>
               {% endif %}
 
               {% if block.settings.text != blank %}

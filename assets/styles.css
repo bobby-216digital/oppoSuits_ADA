@@ -12453,3 +12453,41 @@ custom css of the footer locale country selector hide into the footer section of
       margin-right:15px;
     }
   }
+
+@media (prefers-reduced-motion) {
+  .circle-two {
+    animation-duration: 5s !important;
+  }
+}
+
+.filter-toggle__group-label {
+  font-weight: unset !important;
+}
+
+.copy a {
+  text-decoration: underline !important;
+}
+
+#forgot_password a {
+  text-decoration: underline !important;
+}
+
+.opposing-items a {
+  text-decoration: underline !important;
+}
+
+.note a {
+  text-decoration: underline !important;
+}
+
+.iconmeta a {
+  text-decoration: underline !important;
+}
+
+.pagination-row .back a {
+  text-decoration: underline !important;
+}
+
+input[type=text], input[type=number], input[type=email], input[type=password], input[type=address], input[type=tel], textarea {
+  border: 1px #000000 solid !important;
+}

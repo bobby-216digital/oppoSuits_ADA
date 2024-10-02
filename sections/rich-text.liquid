@@ -14,7 +14,9 @@
             {% if block.settings.use_h1 %}
               <h1 class="majortitle in-content" {{ block.shopify_attributes }}>{{ block.settings.title | escape }}</h1>
             {% else %}
+              {% if block.settings.title != blank %}
               <h2 class="majortitle in-content h1-style" {{ block.shopify_attributes }}>{{ block.settings.title | escape }}</h2>
+              {% endif %}
             {% endif %}
 
           {% when 'subheading' %}

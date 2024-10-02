@@ -148,6 +148,13 @@
     {% endif %}
 
     {{ content_for_header }}
+
+    <style>
+    .navigation__item--with-mega-menu:focus-within .navigation__tier-2-container, a.navigation__tier-2-container:focus-visible + div.navigation__tier-2-container {
+      visibility: visible;
+      opacity: 1;
+    }
+    </style>
   </head>
 
 <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
@@ -257,6 +264,114 @@ ratingSnippet("ruk_rating_snippet", {
     {%- if template.name == 'index' -%}
       {%- render 'velstar-homepage-schema' -%}
     {%- endif -%}
+
+
+  <script>
+  const focusableElements =
+                  'button, a, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  
+              function trapFocus(selector) {
+                  const modal = document.querySelector(selector); // select the modal by it's CSS selector
+                  const firstFocusableElement = modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
+                  const focusableContent = modal.querySelectorAll(focusableElements);
+                  const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
+                  document.addEventListener('keydown', function(e) {
+                  let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+  
+                  if (!isTabPressed) {
+                      return;
+                  }
+  
+                  if (e.shiftKey) { // if shift key pressed for shift + tab combination
+                      if (document.activeElement === firstFocusableElement) {
+                      lastFocusableElement.focus(); // add focus for the last focusable element
+                      e.preventDefault();
+                      }
+                  } else { // if tab key is pressed
+                      if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+                      firstFocusableElement.focus(); // add focus for the first focusable element
+                      e.preventDefault();
+                      }
+                  }
+                  });
+  
+                  firstFocusableElement.focus();
+              }
+
+  function keyToClick(event) {
+                  if (event.key == "Enter") {
+                      event.preventDefault();
+                      event.target.click();
+                  }
+              }
+
+  const leftNavAll = document.querySelectorAll(".navigation--left .navigation__item--with-children a[aria-expanded]");
+  
+  leftNavAll.forEach((e, i) => {
+      let selector;
+  
+      if (e.parentElement.classList.contains('navigation__item--with-mega-menu')) {
+          selector = ".navigation--main .navigation__item--with-mega-menu";
+      } else {
+          selector = ".navigation--main .navigation__item--with-small-menu";
+      }
+      e.addEventListener('focus', () => {
+          const cont = document.querySelector("#" + e.getAttribute('aria-controls')).parentElement;
+          const links = cont.querySelectorAll(".navigation__tier-2-container a");
+          const first = links[0];
+          const last = links[links.length - 1];
+  
+          cont.classList.add("navigation__item--show-children");
+          e.addEventListener('keydown', (ev) => {
+              if (ev.key == "Tab") {
+                  if (ev.shiftKey) {
+                      cont.classList.remove("navigation__item--show-children")
+                  } else {
+                      ev.preventDefault();
+                      cont.querySelector(".navigation__tier-2 a").focus()
+                  }
+              }
+          })
+  
+          first.addEventListener("keydown", (ev) => {
+              if (ev.key == "Tab" && ev.shiftKey) {
+                  ev.preventDefault();
+                  cont.classList.remove("navigation__item--show-children");
+                  e.focus();
+              }
+          })
+  
+          last.addEventListener("keydown", (ev) => {
+              if (ev.key == "Tab" && !ev.shiftKey) {
+                  ev.preventDefault();
+                  cont.classList.remove("navigation__item--show-children");
+                  if (i === (leftNavAll.length - 1)) {
+                      document.querySelector("a.logo__link").focus();
+                  } else {
+                      leftNavAll[i + 1].focus();
+                  }
+              }
+          })
+      })
+  })
+
+  setTimeout(() => {  
+    let slickTrack = document.querySelectorAll(".slick-track div")
+      if (slickTrack) {
+        for (let i = 0; i < slickTrack.length; i++) {
+          slickTrack[i].removeAttribute("aria-hidden")
+        }
+      }
+
+    let slickDots = document.querySelectorAll(".slick-dots li")
+      if (slickDots) {
+        for (let i = 0; i < slickDots.length; i++) {
+          slickDots[i].removeAttribute("aria-hidden")
+        }
+      } 
+  }, 1250)
+  </script>
+    
   </body>
 
   <script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
